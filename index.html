@@ -1,11 +1,126 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Cube Solver App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .container {
+            display: flex;
+            align-items: flex-start;
+        }
+        img {
+            width: 150px;
+            height: 150px;
+            margin-right: 20px;
+        }
+        .content {
+            max-width: 600px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .media-gallery-wrapper {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        .media-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .media-gallery img, .media-gallery video {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+        .media-video {
+            width: 300px;
+        }
+        .download {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-<H1>
-<b>
-Welcome to CubeSolved.com!
-</b>
-</H1>
+    <div class="container">
+        <!-- App Icon -->
+        <img src="images/AppIcon.png" alt="App Icon">
+        
+        <!-- Content -->
+        <div class="content">
+            <h1>Magic Cube Solver App</h1>
+            <p>Solve 3x3, 2x2 and 4x4 cubes with your iPhone's camera. Play with virtual 3D Magic Cube.</p>
+            <p>Spent hours solving the cube, but still can't solve it? Try this app!</p>
+
+            <h2>1. Solve Real Cube</h2>
+            <p>Place the cube in front of the camera, follow the prompts to scan the 6 cube facets in turn, and then this app will show you the steps to solve the Magic Cube in 3D step by step!</p>
+
+            <!-- Media Gallery Wrapper for "Solve Real Cube" -->
+            <div class="media-gallery-wrapper">
+                <!-- Video on the left -->
+                <video class="media-video" controls>
+                    <source src="videos/demo-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+                <!-- 2x2 Grid of Images on the right -->
+                <div class="media-gallery">
+                    <img src="images/demo-image1.png" alt="Demo Image 1">
+                    <img src="images/demo-image2.png" alt="Demo Image 2">
+                    <img src="images/demo-image3.png" alt="Demo Image 3">
+                    <img src="images/demo-image4.png" alt="Demo Image 4">
+                </div>
+            </div>
+
+            <h2>2. Play 3D Cube</h2>
+            <p>Playing 3D cube on your iPhone. Realistic 3D graphics make you feel like you're playing with a real Magic Cube!</p>
+
+            <h2>Key Features:</h2>
+            <ul>
+                <li>Play Magic Cubes of 2x2, 3x3, 4x4, 5x5, 6x6, and 7x7.</li>
+                <li>Swipe the cube with your finger to rotate the layer of the cube. Swipe through the blank area to rotate the cube.</li>
+                <li>Tilt the phone to change the viewing angle of the Magic Cube.</li>
+                <li>AI hints. You can use it, and it will make some moves for you that will bring you closer to solving the cube.</li>
+                <li>Cube in 2D (3D cube shown in 2D).</li>
+                <li>You can also tap the Undo button to undo the last action.</li>
+                <li>Auto-save game - the game will be automatically saved and restored, so you don't have to worry about losing your ongoing game if the application quits unexpectedly.</li>
+                <ul>
+                    <li>Auto-saving the game will only happen if the cube is scrambled and at least 10 moves have been made.</li>
+                </ul>
+                <li>Wide move for cubes of 4x4, 5x5, 6x6, and 7x7.</li>
+                <li>Double-tap on the face of the cube to mark the face; double-tap again to remove it. After marking the face, subsequent rotations will generate guide lines to show the rotation action.</li>
+            </ul>
+
+            <!-- Download Link -->
+            <div class="download">
+                <a href="https://apps.apple.com/us/app/3d-magic-cube-solver/id1537131696?itscg=30200&itsct=apps_box_badge&mttnsubad=1537131696" style="display: inline-block;">
+                    <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1603497600" alt="Download on the App Store" style="width: 246px; height: 82px; vertical-align: middle; object-fit: contain;" />
+                </a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
