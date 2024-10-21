@@ -6,14 +6,37 @@
     <title>Magic Cube Solver App</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+            font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+            line-height: 1.4;
             background-color: #f4f4f4;
             margin: 0;
             padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+        }
+        h1 {
+            font-size: 48px;
+            font-weight: 600;
+            color: #333;
+        }
+        h2 {
+            font-size: 40px;
+            font-weight: 600;
+            color: #333;
+        }
+        p, ul, li {
+            font-size: 18px;
+            font-weight: 400;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
         }
         .container {
             display: flex;
@@ -27,19 +50,6 @@
         .content {
             max-width: 600px;
         }
-        h1, h2 {
-            color: #333;
-        }
-        p {
-            margin-bottom: 15px;
-        }
-        ul {
-            list-style-type: disc;
-            margin-left: 20px;
-        }
-        li {
-            margin-bottom: 10px;
-        }
         .media-gallery-wrapper {
             display: flex;
             align-items: stretch;
@@ -51,16 +61,40 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 10px;
         }
-        .media-gallery img, .media-gallery video {
+        .media-gallery img {
             width: 100%;
             height: auto;
             object-fit: contain;
+            cursor: pointer;
+            transition: transform 0.3s ease, z-index 0s;
+        }
+        .media-gallery img.enlarged {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: contain;
+            z-index: 1000;
+            transform: scale(1);
+            cursor: zoom-out;
+            transition: transform 0.3s ease;
         }
         .media-video {
             width: 300px;
         }
         .download {
-            margin-top: 20px;
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+        }
+        .download img.qr-code {
+            margin-left: 15px;
+            width: 100px;
+            height: 100px;
+        }
+        .section-spacing {
+            margin-bottom: 40px; /* Space between sections */
         }
     </style>
 </head>
@@ -80,19 +114,28 @@
 
             <!-- Media Gallery Wrapper for "Solve Real Cube" -->
             <div class="media-gallery-wrapper">
-                <!-- Video on the left -->
-                <video class="media-video" controls>
+                <!-- Video on the left with preloading -->
+                <video class="media-video" controls preload="auto">
                     <source src="videos/demo-video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
 
                 <!-- 2x2 Grid of Images on the right -->
                 <div class="media-gallery">
-                    <img src="images/demo-image1.png" alt="Demo Image 1">
-                    <img src="images/demo-image2.png" alt="Demo Image 2">
-                    <img src="images/demo-image3.png" alt="Demo Image 3">
-                    <img src="images/demo-image4.png" alt="Demo Image 4">
+                    <img src="images/demo-image1.png" alt="Demo Image 1" onclick="toggleImageSize(this)">
+                    <img src="images/demo-image2.png" alt="Demo Image 2" onclick="toggleImageSize(this)">
+                    <img src="images/demo-image3.png" alt="Demo Image 3" onclick="toggleImageSize(this)">
+                    <img src="images/demo-image4.png" alt="Demo Image 4" onclick="toggleImageSize(this)">
                 </div>
+            </div>
+
+            <!-- Download Link and QR Code Repeated Below First Section -->
+            <div class="download section-spacing">
+                <a href="https://apps.apple.com/us/app/3d-magic-cube-solver/id1537131696?itscg=30200&itsct=apps_box_badge&mttnsubad=1537131696" style="display: inline-block;">
+                    <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1603497600" alt="Download on the App Store" style="width: 246px; height: 82px; vertical-align: middle; object-fit: contain;" />
+                </a>
+                <!-- QR Code -->
+                <img src="images/qr-code.png" alt="QR Code" class="qr-code">
             </div>
 
             <h2>2. Play 3D Cube</h2>
@@ -114,13 +157,21 @@
                 <li>Double-tap on the face of the cube to mark the face; double-tap again to remove it. After marking the face, subsequent rotations will generate guide lines to show the rotation action.</li>
             </ul>
 
-            <!-- Download Link -->
+            <!-- Download Link and QR Code -->
             <div class="download">
                 <a href="https://apps.apple.com/us/app/3d-magic-cube-solver/id1537131696?itscg=30200&itsct=apps_box_badge&mttnsubad=1537131696" style="display: inline-block;">
                     <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1603497600" alt="Download on the App Store" style="width: 246px; height: 82px; vertical-align: middle; object-fit: contain;" />
                 </a>
+                <!-- QR Code -->
+                <img src="images/qr-code.png" alt="QR Code" class="qr-code">
             </div>
         </div>
     </div>
+
+    <script>
+        function toggleImageSize(img) {
+            img.classList.toggle("enlarged");
+        }
+    </script>
 </body>
 </html>
