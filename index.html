@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZTLN7JFWS5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-ZTLN7JFWS5');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Magic Cube Solver App | Solve and Play with 3D Rubik's Cube</title>
@@ -318,7 +328,7 @@
             img.classList.toggle("enlarged");
         }
 
-        // Automatically play video when half of it becomes visible
+        // Automatically play video when the whole video is visible
         window.addEventListener("DOMContentLoaded", function () {
             const video = document.getElementById("demo-video");
 
@@ -328,14 +338,15 @@
             if (isMobile) {
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach((entry) => {
-                        if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
-                            video.play();  // Play video when 50% of it is visible
+                        // Check if the whole video is visible
+                        if (entry.isIntersecting && entry.intersectionRatio === 1) {
+                            video.play();  // Play video when 100% of it is visible
                         } else {
-                            video.pause();  // Pause video when less than 50% is visible
+                            video.pause();  // Pause video when it's not fully visible
                         }
                     });
                 }, {
-                    threshold: [0.5]  // Trigger when 50% of the video is visible
+                    threshold: [1]  // Trigger when 100% of the video is visible
                 });
 
                 observer.observe(video);
