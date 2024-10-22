@@ -11,7 +11,7 @@
     <meta name="robots" content="index, follow">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/images/AppIcon.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="images/AppIcon.png" sizes="32x32">
 
     <!-- Structured Data for App -->
     <script type="application/ld+json">
@@ -32,7 +32,7 @@
         "ratingCount": "1200"
       },
       "url": "https://apps.apple.com/us/app/3d-magic-cube-solver/id1537131696",
-      "image": "/images/AppIcon.png",
+      "image": "images/AppIcon.png",
       "description": "Solve Rubik's cubes with your iPhone's camera. Works with 2x2, 3x3, and 4x4 cubes. Download the Magic Cube Solver app today!"
     }
     </script>
@@ -125,7 +125,7 @@
             transform: scale(1.1);
         }
 
-        /* Media Gallery */
+        /* First section with video and 2x2 grid of images */
         .media-gallery-wrapper {
             display: flex;
             gap: 20px;
@@ -140,7 +140,7 @@
         }
         .media-gallery {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 15px;
             flex: 1;
         }
@@ -166,15 +166,47 @@
             cursor: zoom-out;
         }
 
+        /* Second section for playing cube images (adjusted to fit the screen) */
+        .playing-cube-gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+        .playing-cube-gallery img {
+            width: 100%;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .playing-cube-gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .playing-cube-gallery img.enlarged {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: contain;
+            z-index: 1000;
+            cursor: zoom-out;
+        }
+
         /* Responsive Layout for Small Screens */
         @media (max-width: 768px) {
             .media-gallery {
                 grid-template-columns: repeat(2, 1fr); /* 2x2 Grid on small screens */
             }
+            .playing-cube-gallery {
+                grid-template-columns: repeat(2, 1fr); /* 2x2 grid on smaller screens */
+            }
         }
 
         @media (max-width: 480px) {
-            .media-gallery {
+            .media-gallery,
+            .playing-cube-gallery {
                 grid-template-columns: 1fr; /* Single column on very small screens */
             }
         }
@@ -202,7 +234,7 @@
         <div class="content">
             <!-- App Icon and Title -->
             <h1>
-                <img src="/images/AppIcon.png" alt="Magic Cube Solver App Icon">
+                <img src="images/AppIcon.png" alt="Magic Cube Solver App Icon">
                 Magic Cube Solver App
             </h1>
             <p>Download the <strong>Magic Cube Solver App</strong> and use your iPhone's camera to solve real Rubik's Cubes like the 2x2, 3x3, and 4x4 cubes. Play with virtual 3D cubes and solve puzzles effortlessly!</p>
@@ -215,16 +247,16 @@
             <div class="media-gallery-wrapper">
                 <!-- Video on the left -->
                 <video class="media-video" controls preload="auto">
-                    <source src="/videos/demo-video.mp4" type="video/mp4">
+                    <source src="videos/demo-video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
 
                 <!-- 2x2 Grid of Images on the right -->
                 <div class="media-gallery">
-                    <img src="/images/demo-image1.png" alt="Magic Cube Solver scanning Rubik's Cube" class="enlargeable" onclick="toggleImageSize(this)">
-                    <img src="/images/demo-image2.png" alt="Step-by-step Rubik's Cube solution in 3D" class="enlargeable" onclick="toggleImageSize(this)">
-                    <img src="/images/demo-image3.png" alt="Playing with virtual 3D Magic Cube" class="enlargeable" onclick="toggleImageSize(this)">
-                    <img src="/images/demo-image4.png" alt="Rubik's Cube solving steps on app" class="enlargeable" onclick="toggleImageSize(this)">
+                    <img src="images/demo-image1.png" alt="Magic Cube Solver scanning Rubik's Cube" class="enlargeable" onclick="toggleImageSize(this)">
+                    <img src="images/demo-image2.png" alt="Step-by-step Rubik's Cube solution in 3D" class="enlargeable" onclick="toggleImageSize(this)">
+                    <img src="images/demo-image3.png" alt="Playing with virtual 3D Magic Cube" class="enlargeable" onclick="toggleImageSize(this)">
+                    <img src="images/demo-image4.png" alt="Rubik's Cube solving steps on app" class="enlargeable" onclick="toggleImageSize(this)">
                 </div>
             </div>
 
@@ -234,18 +266,18 @@
                     <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1603497600" alt="Download Magic Cube Solver App on App Store" style="width: 246px; height: 82px;" />
                 </a>
                 <!-- QR Code -->
-                <img src="/images/qr-code.png" alt="Download Magic Cube Solver App QR Code" class="qr-code">
+                <img src="images/qr-code.png" alt="Download Magic Cube Solver App QR Code" class="qr-code">
             </div>
 
             <h2>Play 3D Cube Puzzle</h2>
             <p>Play with a realistic virtual <strong>3D Magic Cube</strong> on your iPhone. Rotate the cube layers with finger swipes, tilt your phone to change the viewing angle, and enjoy the puzzle-solving experience!</p>
 
             <!-- Demo images for playing cube -->
-            <div class="media-gallery-wrapper playing-cube-gallery">
-                <img src="/images/playing-cube-1.png" alt="Playing Cube Demo 1" class="enlargeable" onclick="toggleImageSize(this)">
-                <img src="/images/playing-cube-2.png" alt="Playing Cube Demo 2" class="enlargeable" onclick="toggleImageSize(this)">
-                <img src="/images/playing-cube-3.png" alt="Playing Cube Demo 3" class="enlargeable" onclick="toggleImageSize(this)">
-                <img src="/images/playing-cube-4.png" alt="Playing Cube Demo 4" class="enlargeable" onclick="toggleImageSize(this)">
+            <div class="playing-cube-gallery">
+                <img src="images/playing-cube-1.png" alt="Playing Cube Demo 1" class="enlargeable" onclick="toggleImageSize(this)">
+                <img src="images/playing-cube-2.png" alt="Playing Cube Demo 2" class="enlargeable" onclick="toggleImageSize(this)">
+                <img src="images/playing-cube-3.png" alt="Playing Cube Demo 3" class="enlargeable" onclick="toggleImageSize(this)">
+                <img src="images/playing-cube-4.png" alt="Playing Cube Demo 4" class="enlargeable" onclick="toggleImageSize(this)">
             </div>
 
             <!-- Key Features Section -->
@@ -271,7 +303,7 @@
                     <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1603497600" alt="Download on the App Store" style="width: 246px; height: 82px;" />
                 </a>
                 <!-- QR Code -->
-                <img src="/images/qr-code.png" alt="QR Code for Magic Cube Solver" class="qr-code">
+                <img src="images/qr-code.png" alt="QR Code for Magic Cube Solver" class="qr-code">
             </div>
         </div>
     </div>
