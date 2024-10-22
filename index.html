@@ -3,7 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magic Cube Solver App</title>
+    <title>Magic Cube Solver App | Solve and Play with 3D Rubik's Cube</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Solve Rubik's Cubes (2x2, 3x3, 4x4) using your iPhone's camera. Download the Magic Cube Solver app and play with virtual cubes in realistic 3D.">
+    <meta name="keywords" content="Rubik's Cube Solver, Magic Cube Solver, 3D Cube Puzzle, Rubik's Cube iPhone App, Cube Solver App">
+    <meta name="robots" content="index, follow">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/AppIcon.png" sizes="32x32">
+
+    <!-- Structured Data for App -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MobileApplication",
+      "name": "Magic Cube Solver",
+      "operatingSystem": "iOS",
+      "applicationCategory": "Game",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.5",
+        "ratingCount": "1200"
+      },
+      "url": "https://apps.apple.com/us/app/3d-magic-cube-solver/id1537131696",
+      "image": "/images/AppIcon.png",
+      "description": "Solve Rubik's cubes with your iPhone's camera. Works with 2x2, 3x3, and 4x4 cubes. Download the Magic Cube Solver app today!"
+    }
+    </script>
+
     <style>
         body {
             font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
@@ -107,7 +140,7 @@
         }
         .media-gallery {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 15px;
             flex: 1;
         }
@@ -134,15 +167,15 @@
         }
 
         /* Responsive Layout for Small Screens */
-        @media (max-width: 480px) {
-            .media-gallery-wrapper {
-                flex-direction: column;
-            }
-            .media-video {
-                max-width: 100%;
-            }
+        @media (max-width: 768px) {
             .media-gallery {
-                grid-template-columns: 1fr; /* Switch to a vertical flow on very small screens */
+                grid-template-columns: repeat(2, 1fr); /* 2x2 Grid on small screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .media-gallery {
+                grid-template-columns: 1fr; /* Single column on very small screens */
             }
         }
 
@@ -169,44 +202,53 @@
         <div class="content">
             <!-- App Icon and Title -->
             <h1>
-                <img src="images/AppIcon.png" alt="App Icon">
+                <img src="/images/AppIcon.png" alt="Magic Cube Solver App Icon">
                 Magic Cube Solver App
             </h1>
-            <p>Solve 3x3, 2x2 and 4x4 cubes with your iPhone's camera. Play with virtual 3D Magic Cube.</p>
-            <p>Spent hours solving the cube, but still can't solve it? Try this app!</p>
+            <p>Download the <strong>Magic Cube Solver App</strong> and use your iPhone's camera to solve real Rubik's Cubes like the 2x2, 3x3, and 4x4 cubes. Play with virtual 3D cubes and solve puzzles effortlessly!</p>
+            <p>Spent hours trying to solve your cube but still can't figure it out? Try the Magic Cube Solver App for instant solutions!</p>
 
             <h2>1. Solve Real Cube</h2>
             <p>Place the cube in front of the camera, follow the prompts to scan the 6 cube facets in turn, and then this app will show you the steps to solve the Magic Cube in 3D step by step!</p>
 
-            <!-- Media Gallery Wrapper for "Solve Real Cube" -->
+            <!-- Demo video and images for "Solve Real Cube" -->
             <div class="media-gallery-wrapper">
                 <!-- Video on the left -->
                 <video class="media-video" controls preload="auto">
-                    <source src="videos/demo-video.mp4" type="video/mp4">
+                    <source src="/videos/demo-video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
 
                 <!-- 2x2 Grid of Images on the right -->
                 <div class="media-gallery">
-                    <img src="images/demo-image1.png" alt="Demo Image 1" onclick="toggleImageSize(this)">
-                    <img src="images/demo-image2.png" alt="Demo Image 2" onclick="toggleImageSize(this)">
-                    <img src="images/demo-image3.png" alt="Demo Image 3" onclick="toggleImageSize(this)">
-                    <img src="images/demo-image4.png" alt="Demo Image 4" onclick="toggleImageSize(this)">
+                    <img src="/images/demo-image1.png" alt="Magic Cube Solver scanning Rubik's Cube" class="enlargeable" onclick="toggleImageSize(this)">
+                    <img src="/images/demo-image2.png" alt="Step-by-step Rubik's Cube solution in 3D" class="enlargeable" onclick="toggleImageSize(this)">
+                    <img src="/images/demo-image3.png" alt="Playing with virtual 3D Magic Cube" class="enlargeable" onclick="toggleImageSize(this)">
+                    <img src="/images/demo-image4.png" alt="Rubik's Cube solving steps on app" class="enlargeable" onclick="toggleImageSize(this)">
                 </div>
             </div>
 
             <!-- Download Link and QR Code Repeated Below First Section -->
             <div class="download section-spacing">
                 <a href="https://apps.apple.com/us/app/3d-magic-cube-solver/id1537131696?itscg=30200&itsct=apps_box_badge&mttnsubad=1537131696">
-                    <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1603497600" alt="Download on the App Store" style="width: 246px; height: 82px;" />
+                    <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1603497600" alt="Download Magic Cube Solver App on App Store" style="width: 246px; height: 82px;" />
                 </a>
                 <!-- QR Code -->
-                <img src="images/qr-code.png" alt="QR Code" class="qr-code">
+                <img src="/images/qr-code.png" alt="Download Magic Cube Solver App QR Code" class="qr-code">
             </div>
 
-            <h2>2. Play 3D Cube</h2>
-            <p>Playing 3D cube on your iPhone. Realistic 3D graphics make you feel like you're playing with a real Magic Cube!</p>
+            <h2>Play 3D Cube Puzzle</h2>
+            <p>Play with a realistic virtual <strong>3D Magic Cube</strong> on your iPhone. Rotate the cube layers with finger swipes, tilt your phone to change the viewing angle, and enjoy the puzzle-solving experience!</p>
 
+            <!-- Demo images for playing cube -->
+            <div class="media-gallery-wrapper playing-cube-gallery">
+                <img src="/images/playing-cube-1.png" alt="Playing Cube Demo 1" class="enlargeable" onclick="toggleImageSize(this)">
+                <img src="/images/playing-cube-2.png" alt="Playing Cube Demo 2" class="enlargeable" onclick="toggleImageSize(this)">
+                <img src="/images/playing-cube-3.png" alt="Playing Cube Demo 3" class="enlargeable" onclick="toggleImageSize(this)">
+                <img src="/images/playing-cube-4.png" alt="Playing Cube Demo 4" class="enlargeable" onclick="toggleImageSize(this)">
+            </div>
+
+            <!-- Key Features Section -->
             <h2>Key Features:</h2>
             <ul>
                 <li>Play Magic Cubes of 2x2, 3x3, 4x4, 5x5, 6x6, and 7x7.</li>
@@ -229,7 +271,7 @@
                     <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1603497600" alt="Download on the App Store" style="width: 246px; height: 82px;" />
                 </a>
                 <!-- QR Code -->
-                <img src="images/qr-code.png" alt="QR Code" class="qr-code">
+                <img src="/images/qr-code.png" alt="QR Code for Magic Cube Solver" class="qr-code">
             </div>
         </div>
     </div>
