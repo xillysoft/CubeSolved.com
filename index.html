@@ -130,7 +130,6 @@
             display: flex;
             gap: 20px;
             margin-top: 20px;
-            flex-wrap: wrap;
         }
         .media-video {
             width: 100%;
@@ -166,7 +165,7 @@
             cursor: zoom-out;
         }
 
-        /* Second section for playing cube images (adjusted to fit the screen) */
+        /* Second section for playing cube images */
         .playing-cube-gallery {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -196,11 +195,11 @@
 
         /* Responsive Layout for Small Screens */
         @media (max-width: 768px) {
-            .media-gallery {
-                grid-template-columns: repeat(2, 1fr); /* 2x2 Grid on small screens */
+            .media-gallery-wrapper {
+                flex-direction: column; /* Stacks video on top and images below on smaller screens */
             }
-            .playing-cube-gallery {
-                grid-template-columns: repeat(2, 1fr); /* 2x2 grid on smaller screens */
+            .media-gallery {
+                grid-template-columns: 1fr; /* Stack images vertically below the video */
             }
         }
 
