@@ -245,7 +245,7 @@
             <!-- Demo video and images for "Solve Real Cube" -->
             <div class="media-gallery-wrapper">
                 <!-- Video on the left -->
-                <video class="media-video" id="demo-video" controls preload="auto">
+                <video class="media-video" id="demo-video" controls preload="auto" muted>
                     <source src="videos/demo-video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -318,17 +318,27 @@
             img.classList.toggle("enlarged");
         }
 
-        // Automatically play video on mobile devices
+        // Automatically play video when half of it becomes visible
         window.addEventListener("DOMContentLoaded", function () {
             const video = document.getElementById("demo-video");
 
-            // Check if the screen is small enough to be a mobile device (or touch devices)
+            // Check if the screen is small enough to be a mobile device
             const isMobile = window.innerWidth <= 768;
 
             if (isMobile) {
-                video.setAttribute("autoplay", "true");
-                video.setAttribute("muted", "true");  // Autoplay videos must be muted in most browsers
-                video.play();
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+                            video.play();  // Play video when 50% of it is visible
+                        } else {
+                            video.pause();  // Pause video when less than 50% is visible
+                        }
+                    });
+                }, {
+                    threshold: [0.5]  // Trigger when 50% of the video is visible
+                });
+
+                observer.observe(video);
             }
         });
     </script>
