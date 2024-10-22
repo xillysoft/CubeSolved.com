@@ -4,10 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Magic Cube Solver App</title>
-    
-    <!-- Favicon for the Web Page -->
-    <link rel="icon" type="image/png" href="images/AppIcon.png" sizes="32x32">
-
     <style>
         body {
             font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
@@ -137,8 +133,8 @@
             cursor: zoom-out;
         }
 
-        /* Responsive Layout */
-        @media (max-width: 768px) {
+        /* Responsive Layout for Small Screens */
+        @media (max-width: 480px) {
             .media-gallery-wrapper {
                 flex-direction: column;
             }
@@ -146,7 +142,7 @@
                 max-width: 100%;
             }
             .media-gallery {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr; /* Switch to a vertical flow on very small screens */
             }
         }
 
