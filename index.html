@@ -245,7 +245,7 @@
             <!-- Demo video and images for "Solve Real Cube" -->
             <div class="media-gallery-wrapper">
                 <!-- Video on the left -->
-                <video class="media-video" controls preload="auto">
+                <video class="media-video" id="demo-video" controls preload="auto">
                     <source src="videos/demo-video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -317,6 +317,20 @@
         function toggleImageSize(img) {
             img.classList.toggle("enlarged");
         }
+
+        // Automatically play video on mobile devices
+        window.addEventListener("DOMContentLoaded", function () {
+            const video = document.getElementById("demo-video");
+
+            // Check if the screen is small enough to be a mobile device (or touch devices)
+            const isMobile = window.innerWidth <= 768;
+
+            if (isMobile) {
+                video.setAttribute("autoplay", "true");
+                video.setAttribute("muted", "true");  // Autoplay videos must be muted in most browsers
+                video.play();
+            }
+        });
     </script>
 </body>
 </html>
